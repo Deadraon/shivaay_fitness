@@ -16,3 +16,8 @@ export const submitContact = async (data) => {
   const res = await axios.post(`${API_URL}/contact`, data);
   return res.data;
 };
+
+export const getContacts = async () => {
+  const res = await axios.get(`${API_URL}/contact`);
+  return res.data;
+};
