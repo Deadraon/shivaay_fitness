@@ -1,61 +1,83 @@
 .trainer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
 }
 
 .trainer-card {
   position: relative;
-  border-radius: 8px;
+  border-radius: 20px;
   overflow: hidden;
+  height: 450px;
   cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid var(--glass-border);
 }
 
 .trainer-img-wrapper {
-  position: relative;
   width: 100%;
-  height: 400px;
+  height: 100%;
 }
 
 .trainer-img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.trainer-card:hover .trainer-img-wrapper img {
-  transform: scale(1.1);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .trainer-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  padding: 20px;
-  transform: translateY(10px);
-  opacity: 0.9;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  transform: translateY(20px);
   transition: var(--transition);
+}
+
+.trainer-card:hover img {
+  transform: scale(1.1);
 }
 
 .trainer-card:hover .trainer-overlay {
   transform: translateY(0);
-  opacity: 1;
 }
 
 .trainer-overlay h3 {
   font-size: 1.8rem;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
 }
 
 .trainer-overlay .spec {
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 5px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
 }
 
 .trainer-overlay .exp {
   font-size: 0.9rem;
-  color: #ccc;
+  color: var(--text-muted);
+}
+
+.page-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.loader {
+  text-align: center;
+  padding: 4rem;
+  font-family: 'Outfit', sans-serif;
+  color: var(--accent);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
 }

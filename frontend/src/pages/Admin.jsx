@@ -51,6 +51,13 @@ const Admin = () => {
     setContacts([]);
   };
 
+  // Listen for logout from Navbar
+  useEffect(() => {
+    const onLogout = () => handleLogout();
+    window.addEventListener('adminLogout', onLogout);
+    return () => window.removeEventListener('adminLogout', onLogout);
+  }, []);
+
   if (!isAuthenticated) {
     return (
       <div className="page-container animate-fade-in">
@@ -75,11 +82,8 @@ const Admin = () => {
 
   return (
     <div className="page-container animate-fade-in">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <h1 className="section-title" style={{ margin: 0 }}>ADMIN <span>DASHBOARD</span></h1>
-        <button onClick={handleLogout} className="btn">Logout</button>
-      </div>
-      <p className="page-subtitle">Manage inquiries and gym details.</p>
+      <h1 className="section-title" style={{ marginBottom: '0.5rem' }}>ADMIN <span>DASHBOARD</span></h1>
+      <p className="page-subtitle" style={{ textAlign: 'center', marginBottom: '3rem' }}>Manage inquiries and gym details.</p>
 
       {loading ? (
         <div className="loader">Loading inquiries...</div>

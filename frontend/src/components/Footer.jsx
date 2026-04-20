@@ -1,21 +1,23 @@
-import React from 'react';
-import { Dumbbell } from 'lucide-react';
+import { Activity, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import './Footer.css';
+import logo from '../assets/shivaay_fitness_logo.png';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-brand">
-          <div className="logo">
-            <Dumbbell className="logo-icon" />
-            <span>SHIVAAY <span>FITNESS</span></span>
+          <div className="logo-wrapper">
+            <img src={logo} alt="Shivaay Fitness" className="footer-logo" />
+            <div className="logo-text">
+              <span>SHIVAAY</span>
+              <small>FITNESS</small>
+            </div>
           </div>
-          <p>Forging strength and resilience in Roorkee City. Join us to transform your life with expert coaching and world-class facilities.</p>
+          <p className="footer-desc">The ultimate strength and conditioning destination in Roorkee. We combine science-based training with elite equipment to help you forge your legacy.</p>
           <div className="social-links">
-            <a href="#">IG</a>
-            <a href="#">FB</a>
-            <a href="#">X</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><Activity size={20} /></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><Activity size={20} /></a>
           </div>
         </div>
         
@@ -23,21 +25,31 @@ const Footer = () => {
           <h3>Quick Links</h3>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/classes">Classes</a></li>
-            <li><a href="/trainers">Trainers</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/classes">Programs</a></li>
+            <li><a href="/trainers">Our Trainers</a></li>
+            <li><a href="/contact">Join Now</a></li>
           </ul>
         </div>
 
         <div className="footer-contact">
-          <h3>Contact Us</h3>
-          <p>Roorkee City, Uttarakhand, India</p>
-          <p>Phone: +91 98765 43210</p>
-          <p>Email: info@shivaayfitness.com</p>
+          <h3>Contact Info</h3>
+          <ul>
+            <li><MapPin size={18} className="footer-icon" /> <span>Civil Lines, Roorkee, Uttarakhand, India</span></li>
+            <li><Phone size={18} className="footer-icon" /> <span>+91 98765 43210</span></li>
+            <li><Mail size={18} className="footer-icon" /> <span>info@shivaayfitness.com</span></li>
+          </ul>
+        </div>
+
+        <div className="footer-hours">
+          <h3>Opening Hours</h3>
+          <ul>
+            <li><Clock size={18} className="footer-icon" /> <span>Mon - Sat: 5:00 AM - 10:00 PM</span></li>
+            <li><Clock size={18} className="footer-icon" /> <span>Sunday: 7:00 AM - 12:00 PM</span></li>
+          </ul>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Shivaay Fitness. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Shivaay Fitness. Designed for Performance. Built for Legends.</p>
       </div>
     </footer>
   );
