@@ -1,0 +1,87 @@
+.preloader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.logo-box {
+  text-align: center;
+  animation: logoEntrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.preloader-logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  color: #f5f5f5;
+  letter-spacing: 12px;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.preloader-accent {
+  color: #ff4500;
+  text-shadow: 0 0 30px rgba(255, 69, 0, 0.3);
+}
+
+.loader-container {
+  width: 100%;
+  max-width: 300px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 30px auto 0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #ff4500;
+  box-shadow: 0 0 15px #ff4500;
+  animation: progressLoad 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes progressLoad {
+  0% { width: 0%; }
+  30% { width: 40%; }
+  60% { width: 70%; }
+  100% { width: 100%; }
+}
+
+/* Fade out animation for the whole wrapper */
+.preloader-fade-out {
+  animation: fadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.1); visibility: hidden; }
+}

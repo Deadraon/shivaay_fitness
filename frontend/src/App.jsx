@@ -8,10 +8,25 @@ import Trainers from './pages/Trainers';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 
+import Preloader from './components/Preloader';
+
 function App() {
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500); // 2.5 seconds matching the progress bar animation
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Preloader />;
+  }
+
   return (
     <Router>
-      <div className="app-wrapper">
+      <div className="app-wrapper animate-fade-in">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
