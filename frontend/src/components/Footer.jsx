@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dumbbell, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Dumbbell } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -13,9 +13,9 @@ const Footer = () => {
           </div>
           <p>Forging strength and resilience in Roorkee City. Join us to transform your life with expert coaching and world-class facilities.</p>
           <div className="social-links">
-            <a href="#"><Instagram /></a>
-            <a href="#"><Facebook /></a>
-            <a href="#"><Twitter /></a>
+            <a href="#">IG</a>
+            <a href="#">FB</a>
+            <a href="#">X</a>
           </div>
         </div>
         
