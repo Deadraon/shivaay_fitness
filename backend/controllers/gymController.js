@@ -78,6 +78,12 @@ exports.submitContact = async (req, res) => {
 
 exports.getContacts = async (req, res) => {
   try {
+    // Simple protection for the preview
+    const secret = req.headers['x-admin-secret'];
+    if (secret !== (process.env.ADMIN_SECRET || 'shivaay123')) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+
     if (mongoose.connection.readyState !== 1) throw new Error('DB not connected');
     const contacts = await Contact.find().sort({ createdAt: -1 });
     if (contacts.length === 0) return res.json(mockContacts);

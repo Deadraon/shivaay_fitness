@@ -17,7 +17,9 @@ export const submitContact = async (data) => {
   return res.data;
 };
 
-export const getContacts = async () => {
-  const res = await axios.get(`${API_URL}/contact`);
+export const getContacts = async (secret) => {
+  const res = await axios.get(`${API_URL}/contact`, {
+    headers: { 'x-admin-secret': secret }
+  });
   return res.data;
 };
