@@ -15,6 +15,10 @@ const mockClasses = [
   { _id: '3', title: 'HIIT Burn', description: 'High-intensity interval training to shred fat.', instructorName: 'Rahul Sharma', schedule: 'Mon-Wed-Fri 7:00 PM', capacity: 25 }
 ];
 
+let mockContacts = [
+  { _id: 'm1', name: 'Test User', email: 'test@example.com', phone: '1234567890', message: 'This is a mock message for testing the admin panel!', createdAt: new Date() }
+];
+
 // Controllers
 exports.getTrainers = async (req, res) => {
   try {
@@ -62,7 +66,8 @@ exports.submitContact = async (req, res) => {
     await contact.save();
     res.status(201).json({ message: 'Inquiry submitted successfully!' });
   } catch (error) {
-    // If DB fails, just return success so frontend works
+    // If DB fails, store in memory and return success
+    mockContacts.unshift({ ...req.body, _id: Date.now().toString(), createdAt: new Date() });
     res.status(201).json({ message: 'Inquiry submitted successfully (mock)!' });
   }
 };
@@ -70,8 +75,9 @@ exports.submitContact = async (req, res) => {
 exports.getContacts = async (req, res) => {
   try {
     const contacts = await Contact.find().sort({ createdAt: -1 });
+    if (contacts.length === 0) return res.json(mockContacts);
     res.json(contacts);
   } catch (error) {
-    res.status(500).json({ error: 'Server Error' });
+    res.json(mockContacts);
   }
 };
