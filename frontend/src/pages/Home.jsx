@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Activity, Users, Award, CheckCircle, Phone, Star } from 'lucide-react';
+import { ArrowRight, Activity, Users, Award, CheckCircle, Star } from 'lucide-react';
 import './Home.css';
-
-// Importing the generated logo (using the path from generation)
-import logo from '../assets/shivaay_fitness_logo.png';
 
 const Home = () => {
   return (
@@ -166,15 +163,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-
-      <div className="sticky-cta">
-        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="whatsapp-btn" title="Chat on WhatsApp">
-          <Activity color="#fff" size={30} />
-        </a>
-        <a href="tel:+91XXXXXXXXXX" className="btn btn-primary call-btn" style={{borderRadius: '50%', width: '60px', height: '60px', padding: '0'}}>
-          <Phone size={30} />
-        </a>
-      </div>
     </div>
   );
 };

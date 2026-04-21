@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, ShieldCheck, Zap, TrendingUp } from 'lucide-react';
+import { MapPin, Phone, Mail, ShieldCheck, Zap, TrendingUp } from 'lucide-react';
 import { submitContact } from '../services/api';
+import { contactDetails } from '../config/contact';
 import './Contact.css';
 
 const Contact = () => {
@@ -94,17 +95,17 @@ const Contact = () => {
         <div className="info-box glass">
           <MapPin size={24} className="info-icon" />
           <h4>Find Us</h4>
-          <p>Civil Lines, Near Main Market, Roorkee, Uttarakhand</p>
+          <p>{contactDetails.shortAddress}</p>
         </div>
         <div className="info-box glass">
           <Phone size={24} className="info-icon" />
           <h4>Call Us</h4>
-          <p>+91 98765 43210</p>
+          <p>{contactDetails.phoneDisplay}</p>
         </div>
         <div className="info-box glass">
           <Mail size={24} className="info-icon" />
           <h4>Email</h4>
-          <p>join@shivaayfitness.com</p>
+          <p>{contactDetails.email}</p>
         </div>
       </div>
     </div>

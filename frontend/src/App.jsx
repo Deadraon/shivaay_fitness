@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import FloatingContactButtons from './components/FloatingContactButtons';
 import Home from './pages/Home';
 import Classes from './pages/Classes';
 import Trainers from './pages/Trainers';
@@ -24,6 +25,7 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
+      {!isAdmin && <FloatingContactButtons />}
       {!isAdmin && <Footer />}
     </div>
   );

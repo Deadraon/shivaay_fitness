@@ -1,6 +1,7 @@
 import { Activity, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import './Footer.css';
 import logo from '../assets/shivaay_fitness_logo.png';
+import { contactDetails } from '../config/contact';
 
 const Footer = () => {
   return (
@@ -34,9 +35,9 @@ const Footer = () => {
         <div className="footer-contact">
           <h3>Contact Info</h3>
           <ul>
-            <li><MapPin size={18} className="footer-icon" /> <span>Civil Lines, Roorkee, Uttarakhand, India</span></li>
-            <li><Phone size={18} className="footer-icon" /> <span>+91 98765 43210</span></li>
-            <li><Mail size={18} className="footer-icon" /> <span>info@shivaayfitness.com</span></li>
+            <li><MapPin size={18} className="footer-icon" /> <span>{contactDetails.address}</span></li>
+            <li><Phone size={18} className="footer-icon" /> <span>{contactDetails.phoneDisplay}</span></li>
+            <li><Mail size={18} className="footer-icon" /> <span>{contactDetails.email}</span></li>
           </ul>
         </div>
 
