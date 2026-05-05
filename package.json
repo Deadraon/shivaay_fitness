@@ -4,6 +4,11 @@
   "description": "Root package for Railway/Render deployment",
   "scripts": {
     "install": "cd backend && npm install",
-    "start": "cd backend && npm start"
+    "start": "cd backend && npm start",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.83.0"
   }
 }
